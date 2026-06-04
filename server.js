@@ -5,6 +5,7 @@ require("dotenv").config();
 const { sequelize } = require("./models");
 const authRoutes = require("./routes/auth.routes");
 const libroRoutes = require("./routes/libro.routes");
+const prestamoRoutes = require("./routes/prestamo.routes");
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(express.static("public"));
 
 app.use("/auth", authRoutes);
 app.use("/libros", libroRoutes);
+app.use("/prestamos", prestamoRoutes);
 const verificarToken = require("./middlewares/auth.middleware");
 const verificarAdmin = require("./middlewares/rol.middleware");
 
