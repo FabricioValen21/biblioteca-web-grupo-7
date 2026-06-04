@@ -6,6 +6,8 @@ const { sequelize } = require("./models");
 const authRoutes = require("./routes/auth.routes");
 const libroRoutes = require("./routes/libro.routes");
 const prestamoRoutes = require("./routes/prestamo.routes");
+// 1. LÍNEA NUEVA: Importamos tus rutas de usuario
+const usuarioRoutes = require("./routes/usuario.routes");
 
 const app = express();
 
@@ -16,6 +18,8 @@ app.use(express.static("public"));
 app.use("/auth", authRoutes);
 app.use("/libros", libroRoutes);
 app.use("/prestamos", prestamoRoutes);
+// 2. LÍNEA NUEVA: Conectamos la ruta base de usuarios para el administrador
+app.use("/usuarios", usuarioRoutes);
 const verificarToken = require("./middlewares/auth.middleware");
 const verificarAdmin = require("./middlewares/rol.middleware");
 
