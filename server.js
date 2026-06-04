@@ -12,6 +12,22 @@ app.use(express.json());
 app.use(express.static("public"));
 
 app.use("/auth", authRoutes);
+const verificarToken = require("./middlewares/auth.middleware");
+const verificarAdmin = require("./middlewares/rol.middleware");
+
+app.get("/prueba-token", verificarToken, (req, res) => {
+  res.json({
+    mensaje: "Token valido",
+    usuario: req.usuario,
+  });
+});
+
+app.get("/prueba-admin", verificarToken, verificarAdmin, (req, res) => {
+  res.json({
+    mensaje: "Acceso de admin permitido",
+    usuario: req.usuario,
+  });
+});
 
 app.get("/", (req, res) => {
   res.send("API Biblioteca Web Grupo 7 funcionando");
