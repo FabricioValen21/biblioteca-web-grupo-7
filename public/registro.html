@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Biblioteca</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+        body { background: #f4f6f9; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .caja-registro { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+        h2 { text-align: center; margin-bottom: 24px; color: #333; }
+        .grupo-datos { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; color: #555; font-weight: bold; }
+        input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; }
+        button { width: 100%; padding: 12px; background: #28a745; border: none; color: white; font-size: 16px; font-weight: bold; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #218838; }
+        .alerta { padding: 12px; margin-bottom: 20px; border-radius: 4px; display: none; text-align: center; }
+        .alerta-mala { background: #f8d7da; color: #721c24; }
+        .alerta-buena { background: #d4edda; color: #155724; }
+        p { text-align: center; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="caja-registro">
+        <h2>Crear Cuenta</h2>
+        <div id="caja-mensajes" class="alerta"></div>
+        <form id="formulario-registro">
+            <div class="grupo-datos">
+                <label for="nombre">Nombre Completo</label>
+                <input type="text" id="nombre" required placeholder="Juan Perez">
+            </div>
+            <div class="grupo-datos">
+                <label for="email">Correo Electronico</label>
+                <input type="email" id="email" required placeholder="juan@ejemplo.com">
+            </div>
+            <div class="grupo-datos">
+                <label for="clave">Clave de Acceso</label>
+                <input type="password" id="clave" required placeholder="Minimo 6 caracteres">
+            </div>
+            <button type="submit">Registrarse</button>
+        </form>
+        <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesion aqui</a></p>
+    </div>
+    <script src="js/auth.js"></script>
+</body>
+</html>
