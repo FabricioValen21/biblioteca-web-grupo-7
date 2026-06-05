@@ -31,8 +31,13 @@ if (formIngreso) {
 
             if (!respuesta.ok) throw new Error(datos.mensaje || 'Fallo el ingreso');
             
-            verAlerta('Ingreso correcto. Entrando...', true);
-            setTimeout(() => { window.location.href = 'libros.html'; }, 1500);
+            localStorage.setItem("token", datos.token);
+            localStorage.setItem("usuario", JSON.stringify(datos.usuario));
+
+            verAlerta("Ingreso correcto. Entrando...", true);
+            setTimeout(() => {
+                window.location.href = "libros.html";
+            }, 1500);
         } catch (error) {
             verAlerta(error.message);
         }
