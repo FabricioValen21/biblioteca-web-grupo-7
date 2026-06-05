@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prestamos - Biblioteca</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f4f6f9;
+      color: #222;
+    }
+
+    header {
+      background: #0056b3;
+      color: white;
+      padding: 16px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .usuario-info {
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .contenedor {
+      max-width: 1200px;
+      margin: 25px auto;
+      padding: 0 20px;
+    }
+
+    .tarjeta {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    button {
+      padding: 9px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 2px;
+    }
+
+    .btn-azul {
+      background: #0056b3;
+      color: white;
+    }
+
+    .btn-verde {
+      background: #28a745;
+      color: white;
+    }
+
+    .btn-rojo {
+      background: #dc3545;
+      color: white;
+    }
+
+    .btn-gris {
+      background: #6c757d;
+      color: white;
+    }
+
+    .btn-amarillo {
+      background: #ffc107;
+      color: #222;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th {
+      background: #e9ecef;
+    }
+
+    .mensaje {
+      padding: 12px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      display: none;
+    }
+
+    .ok {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .error {
+      background: #f8d7da;
+      color: #721c24;
+    }
+
+    .estado-pendiente {
+      color: #856404;
+      font-weight: bold;
+    }
+
+    .estado-prestado {
+      color: #004085;
+      font-weight: bold;
+    }
+
+    .estado-devuelto {
+      color: #155724;
+      font-weight: bold;
+    }
+
+    a {
+      color: white;
+      margin-left: 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div>
+      <h1>Prestamos de Biblioteca</h1>
+      <div class="usuario-info" id="datos-usuario"></div>
+    </div>
+
+    <div>
+      <a href="libros.html">Catalogo</a>
+      <button class="btn-rojo" onclick="cerrarSesion()">Cerrar sesion</button>
+    </div>
+  </header>
+
+  <main class="contenedor">
+
+    <div id="mensaje" class="mensaje"></div>
+
+    <section class="tarjeta">
+      <h2>Lista de prestamos</h2>
+      <button class="btn-azul" onclick="cargarPrestamos()">Actualizar lista</button>
+    </section>
+
+    <section class="tarjeta">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Codigo</th>
+            <th>Usuario</th>
+            <th>Libro</th>
+            <th>Fecha prestamo</th>
+            <th>Fecha devolucion</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody id="tabla-prestamos">
+          <!-- Aqui se cargan los prestamos -->
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <script src="js/prestamos.js"></script>
+</body>
+</html>
