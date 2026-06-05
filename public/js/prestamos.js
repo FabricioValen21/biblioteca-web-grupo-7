@@ -10,8 +10,14 @@ const usuario = JSON.parse(usuarioGuardado);
 const tablaPrestamos = document.getElementById("tabla-prestamos");
 const mensaje = document.getElementById("mensaje");
 const datosUsuario = document.getElementById("datos-usuario");
+const linkUsuarios = document.getElementById("link-usuarios");
 
 datosUsuario.textContent = `Usuario: ${usuario.nombre} | Rol: ${usuario.rol}`;
+
+// Oculta el enlace de usuarios si no es administrador
+if (linkUsuarios && usuario.rol !== "admin") {
+  linkUsuarios.style.display = "none";
+}
 
 function mostrarMensaje(texto, tipo) {
   mensaje.textContent = texto;
