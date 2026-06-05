@@ -9,7 +9,7 @@
   --azul-frio-2: #3f667d;
   --verde-metal: #4d6b57;
   --rojo-oscuro: #7a2e2e;
-  --amarillo-palida: #c2a96b;
+  --amarillo-palido: #c2a96b;
   --sombra: rgba(0, 0, 0, 0.25);
 }
 
@@ -33,7 +33,7 @@ body {
   min-height: 100vh;
 }
 
-/* HEADER GENERAL */
+/* HEADER */
 
 header {
   background: linear-gradient(90deg, var(--negro), var(--gris-oscuro), var(--azul-frio));
@@ -48,27 +48,37 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 24px;
-  letter-spacing: 1px;
+  font-size: 26px;
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 
 .usuario-info {
   font-size: 14px;
-  margin-top: 6px;
-  color: var(--gris-claro);
+  margin-top: 8px;
+  color: var(--blanco-roto);
+}
+
+header div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 header a {
   color: var(--blanco-roto);
-  margin-left: 15px;
+  background: transparent;
+  padding: 10px 14px;
+  border-radius: 4px;
   text-decoration: none;
   font-weight: bold;
+  transition: 0.2s;
 }
 
 header a:hover {
-  color: var(--amarillo-palida);
-  text-decoration: underline;
+  background: var(--azul-frio-2);
+  color: white;
+  text-decoration: none;
 }
 
 /* CONTENEDORES */
@@ -105,7 +115,7 @@ header a:hover {
 }
 
 .grupo-datos {
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 label {
@@ -119,7 +129,7 @@ input,
 select,
 textarea {
   width: 100%;
-  padding: 11px;
+  padding: 12px;
   border: 1px solid #aaa;
   border-radius: 4px;
   font-size: 15px;
@@ -155,11 +165,11 @@ textarea:focus {
 .caja-registro {
   background: var(--blanco-roto);
   color: var(--negro);
-  padding: 40px;
+  padding: 42px;
   border-radius: 8px;
   box-shadow: 0 6px 20px var(--sombra);
   width: 100%;
-  max-width: 420px;
+  max-width: 460px;
   border-top: 6px solid var(--azul-frio);
 }
 
@@ -167,17 +177,19 @@ textarea:focus {
 .caja-ingreso h2,
 .caja-registro h2 {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   color: var(--negro);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  font-size: 28px;
 }
 
 .caja-auth p,
 .caja-ingreso p,
 .caja-registro p {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 22px;
+  color: var(--negro);
 }
 
 .caja-auth a,
@@ -196,6 +208,7 @@ button {
   cursor: pointer;
   font-weight: bold;
   transition: 0.2s;
+  font-size: 14px;
 }
 
 button:hover {
@@ -224,8 +237,31 @@ button:hover {
 }
 
 .btn-amarillo {
-  background: var(--amarillo-palida);
+  background: var(--amarillo-palido);
   color: var(--negro);
+}
+
+/* Botones dentro del login y registro */
+.caja-ingreso button,
+.caja-registro button,
+.caja-auth button {
+  width: 100%;
+  margin-top: 8px;
+  padding: 13px;
+  background: var(--azul-frio);
+  color: white;
+  font-size: 16px;
+}
+
+.caja-registro button {
+  background: var(--verde-metal);
+}
+
+.caja-ingreso button:hover,
+.caja-registro button:hover,
+.caja-auth button:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
 }
 
 /* TABLAS */
@@ -294,7 +330,7 @@ tr:hover {
   display: none;
 }
 
-/* ESTADOS DE PRESTAMOS */
+/* ESTADOS */
 
 .estado-pendiente {
   color: #856404;
@@ -320,6 +356,10 @@ tr:hover {
     gap: 12px;
   }
 
+  header div:last-child {
+    flex-wrap: wrap;
+  }
+
   .fila {
     flex-direction: column;
   }
@@ -332,6 +372,6 @@ tr:hover {
   .caja-auth,
   .caja-ingreso,
   .caja-registro {
-    padding: 28px;
+    padding: 30px;
   }
 }
