@@ -23,7 +23,7 @@ app.use("/usuarios", usuarioRoutes);
 
 
 app.get("/", (req, res) => {
-  res.send("API Biblioteca Web Grupo 7 funcionando");
+  res.redirect("/login.html");
 });
 
 const PORT = process.env.PORT || 3000;
